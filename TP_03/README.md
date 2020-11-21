@@ -14,5 +14,5 @@
 2- Exécutez ce script pour l'utilisateur adéquat  
 3- Écrivez un script pour ajouter au moins trois lignes dans la table games et exécutez le pour l'utilisateur adéquat
 
-[Le rendu juste ici](./data.sql)
+[Le rendu juste ici](./data.sql)  
 [Et aussi ici](./insert.sql)
