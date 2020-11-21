@@ -6,4 +6,4 @@
 2- Insérez 3 lignes dans cette table  
 3- Affichez seulement les prénoms et codes postaux
 
-[Le rendu juste ici](./TP_01/script.sql)
+[Le rendu juste ici](./script.sql)
