@@ -16,6 +16,8 @@ GRANT ALL ON events.* TO 'event_manager'@'localhost';
 CREATE USER 'event_supervisor'@'localhost' IDENTIFIED BY 'password';
 GRANT SELECT ON events.public_events TO 'event_supervisor'@'localhost';
 
+FLUSH PRIVILEGES;
+
 /* Déconnexion de l'utilisateur root puis reconnexion avec l'utilisateur event_manager :
 # mysql -u event_manager -p
 */
