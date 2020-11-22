@@ -11,6 +11,8 @@ Pour cette première partie il faut dans un premier temps créer un fichier Dock
 
 ### DockerFile
 
+[Lien vers l'image avec le tag `tp4-first-part` juste ici 🤚](https://hub.docker.com/repository/docker/alexboissseau/admin-bdd)
+
 ```
 FROM mysql
 
