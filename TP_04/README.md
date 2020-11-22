@@ -47,3 +47,48 @@ RUN apt-get update && apt-get install -y && apt-get update \
 RUN echo '0 17 * * 1 mysqldump -u root --password=password --all-databases | gzip -9 > /backup/all_databases_`date +"\%Y-\%m-\%d_"`.sql.gz' >> /var/spool/cron/crontabs/root
 
 ```
+
+## Troisième partie (consigne)
+
+Mettez en place une stratégie de backups avec logrotate qui réalise un dump journalier compressé en format bz2 et qui garde les 5 derniers dumps.
+
+## Troisième partie (rendu)
+
+Pour cette troisième et dernière partie il faut dans un premier temps installer Logrotate. Après avoir installer cet outil, nous allons pouvoir le configurer pour qu'il fasse une backup de notre base de données chaque jour et qu'il garde les 5 derniers dumps. Pour ajouter un fichier de conf on se rend à l'emplacement `/etc/logrotate.d/`.
+
+### Dockerfile
+
+[Lien vers l'image avec le tag `tp4-third-part` juste ici 🤚](https://hub.docker.com/layers/127226643/alexboissseau/admin-bdd/tp4-third-part/images/sha256-fedbfe1c240c40c88c504b0cc323d5b71712eb12b0b5ea3d76e17cd97635ed4d)
+
+```
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD=password
+
+# Install vim and cron tools
+RUN apt-get update && apt-get install -y && apt-get update \
+    && apt-get install vim -y \
+    && apt-get install cron -y
+
+
+# Edit cron config
+RUN echo '0 17 * * 1 mysqldump -u root --password=password --all-databases | gzip -9 > /backup/all_databases_`date +"\%Y-\%m-\%d_"`.sql.gz' >> /var/spool/cron/crontabs/root
+
+# Install logrotate
+RUN apt-get install logrotate -y
+
+# Create new fileConf
+RUN echo "/backups/all_databases.sql.b2z {" >> /etc/logrotate.d/confFile
+RUN echo "rotate 5" >> /etc/logrotate.d/confFile
+RUN echo "daily" >> /etc/logrotate.d/confFile
+RUN echo "postrotate" >> /etc/logrotate.d/confFile
+RUN echo "echo mysqldump -u root --password=password --all-databases | bzip2 > /backups/all_databases.sql.b2z" >> /etc/logrotate.d/confFile
+RUN echo "endscript" >> /etc/logrotate.d/confFile
+RUN echo "}" >> /etc/logrotate.d/confFile
+
+
+# Create backups folder and first file inside
+RUN mkdir /backups && cd /backups && echo mysqldump -u root --password=password --all-databases | bzip2 > /backups/all_databases.sql.b2z
+
+
+```
