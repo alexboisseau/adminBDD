@@ -11,7 +11,7 @@ Pour cette première partie il faut dans un premier temps créer un fichier `Doc
 
 ### DockerFile
 
-[Lien vers l'image avec le tag `tp4-first-part` juste ici 🤚](https://hub.docker.com/layers/127220336/alexboissseau/admin-bdd/tp4-first-part/images/sha256-1833de7b376211e3b79a244cd7a6173da644794f9c08739b2741203b955238b7)
+[Lien vers l'image docker avec le tag `tp4-first-part` juste ici 🤚](https://hub.docker.com/layers/127220336/alexboissseau/admin-bdd/tp4-first-part/images/sha256-1833de7b376211e3b79a244cd7a6173da644794f9c08739b2741203b955238b7)
 
 ```
 FROM mysql
@@ -54,7 +54,7 @@ Mettez en place une stratégie de backups avec logrotate qui réalise un dump jo
 
 ## Troisième partie (rendu)
 
-Pour cette troisième et dernière partie il faut dans un premier temps installer Logrotate. Après avoir installer cet outil, nous allons pouvoir le configurer pour qu'il fasse une backup de notre base de données chaque jour et qu'il garde les 5 derniers dumps. Pour ajouter un fichier de conf on se rend à l'emplacement `/etc/logrotate.d/`.
+Pour cette troisième et dernière partie il faut dans un premier temps installer Logrotate. Après avoir installé cet outil, nous allons pouvoir le configurer pour qu'il fasse une backup de notre base de données chaque jour et qu'il garde les 5 derniers dumps. Pour ajouter un fichier de conf on se rend à l'emplacement `/etc/logrotate.d/`.
 
 ### Dockerfile
 
@@ -89,6 +89,5 @@ RUN echo "}" >> /etc/logrotate.d/confFile
 
 # Create backups folder and first file inside
 RUN mkdir /backups && cd /backups && echo mysqldump -u root --password=password --all-databases | bzip2 > /backups/all_databases.sql.b2z
-
 
 ```
