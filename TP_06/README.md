@@ -1,4 +1,4 @@
-# AdminBDD : TP6
+# TP06
 
 ## 1/Créez une fichier Docker-compose.yml qui lance deux instances MariaDB
 

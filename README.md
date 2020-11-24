@@ -10,3 +10,5 @@ Vous pourrez trouvez sur ce repository tout les TP que nous devions rendre pour 
 - [TP04](./TP_04/README.md)
 - [TP05](./TP_05/README.md)
 - [TP06](./TP_06/README.md)
+- [TP07](./TP_07/README.md)
+- [TP08](./TP_08/README.md)
