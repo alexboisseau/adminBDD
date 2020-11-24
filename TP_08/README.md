@@ -35,5 +35,5 @@ Jusqu'ici, à aucun moment on indique une source de données au service Promethe
 
 Je me suis rendu compte que j'aurai sûrement dû utiliser un autre utilisateur que root pour des soucis de visibilité. J'ai l'impression que l'utilisateur `root` effectue des requêtes que l'on ne voit pas directement.
 
-[Lectures & Ecritures](./images/lectures-ecritures.png)
-[variation du taux d'opérations de lectures et d'écritures (moyenne de 5min)](./images/moyenne.png)
+[Lectures & Ecritures](./images/lectures-ecritures.png?raw=true)  
+[variation du taux d'opérations de lectures et d'écritures (moyenne de 5min)](./images/moyenne.png?raw=true)
