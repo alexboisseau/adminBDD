@@ -11,7 +11,7 @@ CREATE TABLE public_events(
 CREATE TABLE private_events LIKE public_events;
 
 CREATE USER 'event_manager'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL ON events.* TO 'event_manager'@'localhost';
+GRANT ALL PRIVILEGES ON events.* TO 'event_manager'@'localhost';
 
 CREATE USER 'event_supervisor'@'localhost' IDENTIFIED BY 'password';
 GRANT SELECT ON events.public_events TO 'event_supervisor'@'localhost';
