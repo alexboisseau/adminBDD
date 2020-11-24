@@ -2,7 +2,7 @@
 
 [Repo Docker Hub juste ici 🤚](https://hub.docker.com/repository/docker/alexboissseau/admin-bdd)
 
-Vous pourrez trouvez sur ce repository tout les TP que nous devions rendre pour le cours administration de base de données en 3ème année d'informatique à YNOV CAMPUS. 📚🖥
+Vous pourrez trouver sur ce repository tous les TPs que nous devions rendre pour le cours administration de base de données en 3ème année d'informatique à YNOV CAMPUS. 📚🖥
 
 - [TP01](./TP_01/README.md)
 - [TP02](./TP_02/README.md)
