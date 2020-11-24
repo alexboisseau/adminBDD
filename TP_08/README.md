@@ -31,9 +31,16 @@ Pour ce qui est de les relier entre eux, on aurait pû créer un réseau avec Do
 
 Jusqu'ici, à aucun moment on indique une source de données au service Prometheus. On va donc commencer par ajouter un volume à ce service dans le fichier `docker-compose`. Ce volume permettra au container d'accéder à un nouveau fichier : `prometheus.yml`. Dans celui-ci on va trouver quelques données basiques mais essentielles au bon fonctionnement de tout ce système. Premièrement on indique l'intervalle de temps d'analyse des données, ensuite on indique la destination d'envoi des données (ici ça sera sur le `localhost:9090`) puis enfin la source des données, ce qui correspond au service `exporter-mysql`, accessible au `mysql-exporter:9104`.
 
-#### Graphique avec les opérations de lecture & écriture
+### Graphique avec les opérations de lecture & écriture
 
 Je me suis rendu compte que j'aurai sûrement dû utiliser un autre utilisateur que root pour des soucis de visibilité. J'ai l'impression que l'utilisateur `root` effectue des requêtes que l'on ne voit pas directement.
 
-[Lectures & Ecritures](./images/lectures-ecritures.png?raw=true)  
-[variation du taux d'opérations de lectures et d'écritures (moyenne de 5min)](./images/moyenne.png?raw=true)
+#### Lectures & Ecritures
+
+En rouge les requêtes insert (j'en ai fait 20 pour qu'il y ai au moins un petit pic comparé aux requêtes select qui sont très nombreuses ...)
+
+![Lectures & Ecritures](./images/lectures-ecritures.png?raw=true)
+
+#### Variation du taux d'opérations de lectures et d'écritures en prenant en compte la moyenne sur les 5 dernières minutes
+
+![variation du taux d'opérations de lectures et d'écritures (moyenne de 5min)](./images/moyenne.png?raw=true)
