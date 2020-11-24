@@ -14,15 +14,15 @@ Connectez vous au serveur MariaDB et importez la base que vous venez d'exporter.
 
 Pour réaliser le TP j'ai :
 
-- Crée un fichier docker-compose.yaml avec le même contenu que dans le slide. (Permet de créer deux conteneurs, un mysql et un mariadb avec un volume partagé)
+- Créé un fichier docker-compose.yaml avec le même contenu que dans le slide. (Permet de créer deux conteneurs, un mysql et un mariadb avec un volume partagé)
 - Exécuté ce fichier avec la commande `docker-compose build`
 - Exécuté la commande `docker-compose up -d` pour lancer les deux container
 - Lancé la commande `docker-compose exec mysql sh` pour me connecter au shell du conteneur msql.
-- Crée une base de donnée que j'ai nommé `TP05` en y ajoutant la table `first_name` ainsi que quelques données.
+- Créé une base de donnée que j'ai nommé `TP05` en y ajoutant la table `first_name` ainsi que quelques données.
 - Dumpé la table (`mysqldump -u root -p TP05 > /backups/backup.sql`), dans le dossier `backups` qui correspond au volume partagé par les deux conteneurs. Je me suis ensuite déconnecté du conteneur avec la commande `exit`.
 
 - Lancé la commande `docker-compose exec maria sh` pour me connecter au shell du conteneur maria.
-- Crée une base de donnés que j'ai nommé `TP05`.
+- Créé une base de donnés que j'ai nommé `TP05`.
 - Exécuté la commande `mariadb -u root -p TP05 < /backups/backup.sql`
 
 ### Docker-compose.yaml
